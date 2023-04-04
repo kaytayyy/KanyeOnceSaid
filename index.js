@@ -7,14 +7,30 @@ const newQuoteButton = document.getElementById( "new-quote" )
 const favoriteButton = document.getElementById( "favorite-button" ) 
 const currentQuote   = document.getElementById( "current-quote-content" )
 const favoriteList   = document.getElementById( "favorite-list")
-const logoDisplay    = document.getElementById("logo")
+const logoDisplay    = document.getElementById( "logo")
 logoDisplay.src = 'assets/kanye__1_.png'
 favoriteButton.style.display = "none"
 
-
-logoDisplay.addEventListener("click", () => {
+// page refresh 
+logoDisplay.addEventListener("click", () => 
+{
     window.location.reload()
 })
+
+// mouseover effects for the list 
+favoriteList.addEventListener(
+    "mouseover",
+    (e) => 
+    {
+      e.target.style.color = "purple"; 
+    })
+
+    favoriteList.addEventListener(
+    "mouseout",
+    (e) => 
+    {
+       e.target.style.color = ""
+    })
 
 
 
@@ -96,7 +112,8 @@ function addNewFavorite()
             newFavorite.appendChild(deleteEmoji)
             favoriteList.appendChild(newFavorite)
         
-            deleteEmoji.addEventListener('click', () => {
+            deleteEmoji.addEventListener('click', () => 
+            {
                     newFavorite.remove()
             })
             
