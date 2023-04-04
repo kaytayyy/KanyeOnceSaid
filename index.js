@@ -1,10 +1,38 @@
 const apiUrl = 'https://api.kanye.rest'
 
 // global variables to use later
+
 let isFavorited = false
 const newQuoteButton = document.getElementById( "new-quote" )
 const favoriteButton = document.getElementById( "favorite-button" ) 
-const currentQuote   = document.getElementById( "current-quote" )
+const currentQuote   = document.getElementById( "current-quote-content" )
+const favoriteList   = document.getElementById( "favorite-list")
+const logoDisplay    = document.getElementById( "logo")
+logoDisplay.src = 'assets/kanye__1_.png'
+favoriteButton.style.display = "none"
+
+// page refresh 
+logoDisplay.addEventListener("click", () => 
+{
+    window.location.reload()
+})
+
+// mouseover effects for the list 
+favoriteList.addEventListener(
+    "mouseover",
+    (e) => 
+    {
+      e.target.style.color = "purple"; 
+    })
+
+    favoriteList.addEventListener(
+    "mouseout",
+    (e) => 
+    {
+       e.target.style.color = ""
+    })
+
+
 
 
 // button that starts the fetch request
@@ -18,6 +46,7 @@ function makeNewQuote()
         .then( quoteData => 
     {
         displayQuote( quoteData )
+        favoriteButton.style.display = 'block' // reveals like button when new quote button is clicked
         isFavorited = false      // sets the isFavorited variable to false everytime a new quote is shown
         favoriteButton.style.backgroundColor = 'white'  // sets the background color of the favorite button to white
     })
@@ -40,7 +69,7 @@ function displayQuote( quoteData )
 favoriteButton.addEventListener( "click", favClick )
 
 
-    function favClick() 
+function favClick() 
     
 {                                   // Turns the isFavorited variable true or false; opposite of what state it is currently in
         isFavorited = !isFavorited 
@@ -54,7 +83,7 @@ favoriteButton.addEventListener( "click", favClick )
 
                 if ( isFavorited )                
             {
-
+                addNewFavorite()
                 console.log( "add" )
 
             }      
@@ -63,11 +92,39 @@ favoriteButton.addEventListener( "click", favClick )
 // checks if isFavorited is false
                 if ( !isFavorited )              
             {
-
+                
+                removeLastFavorite();
                 console.log( "remove" )
-
+                
             }
 
-
+            
 
 }    
+
+function addNewFavorite() 
+{
+
+            const newFavorite  = document.createElement("li")
+            const deleteEmoji = document.createElement('span')          
+            deleteEmoji.textContent =     '❌'                           // function that appends new favorites to a list 
+            newFavorite.textContent = currentQuote.textContent
+            newFavorite.appendChild(deleteEmoji)
+            favoriteList.appendChild(newFavorite)
+        
+            deleteEmoji.addEventListener('click', () => 
+            {
+                    newFavorite.remove()
+            })
+            
+}
+
+
+function removeLastFavorite() 
+{
+     
+
+            const favoriteListDelete = favoriteList.getElementsByTagName("li")
+            const lastItem = favoriteListDelete[favoriteListDelete.length - 1]   // function that removes the last favorite if heart is clicked again
+            lastItem.parentNode.removeChild(lastItem)
+}                                                                                   
