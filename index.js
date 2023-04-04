@@ -4,7 +4,9 @@ const apiUrl = 'https://api.kanye.rest'
 let isFavorited = false
 const newQuoteButton = document.getElementById( "new-quote" )
 const favoriteButton = document.getElementById( "favorite-button" ) 
-const currentQuote   = document.getElementById( "current-quote" )
+const currentQuote   = document.getElementById( "current-quote-content" )
+const favoriteList   = document.getElementById( "favorite-list")
+
 
 
 // button that starts the fetch request
@@ -40,7 +42,7 @@ function displayQuote( quoteData )
 favoriteButton.addEventListener( "click", favClick )
 
 
-    function favClick() 
+function favClick() 
     
 {                                   // Turns the isFavorited variable true or false; opposite of what state it is currently in
         isFavorited = !isFavorited 
@@ -54,7 +56,7 @@ favoriteButton.addEventListener( "click", favClick )
 
                 if ( isFavorited )                
             {
-
+                addNewFavorite()
                 console.log( "add" )
 
             }      
@@ -63,11 +65,25 @@ favoriteButton.addEventListener( "click", favClick )
 // checks if isFavorited is false
                 if ( !isFavorited )              
             {
-
+                removeLastFavorite()
                 console.log( "remove" )
-
+                
             }
 
 
 
 }    
+
+function addNewFavorite() 
+{
+            const newFavorite  = document.createElement("li")                   // function that appends new favorites to a list 
+            newFavorite.textContent = currentQuote.textContent
+            favoriteList.appendChild(newFavorite)
+}
+
+
+function removeLastFavorite() {
+    const favoriteListDelete = favoriteList.getElementsByTagName("li")
+    const lastItem = favoriteListDelete[favoriteListDelete.length - 1]          // function that removes the last favorite if heart is clicked again
+    lastItem.parentNode.removeChild(lastItem)
+}                                                                                   
