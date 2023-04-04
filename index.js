@@ -1,11 +1,21 @@
 const apiUrl = 'https://api.kanye.rest'
 
 // global variables to use later
+
 let isFavorited = false
 const newQuoteButton = document.getElementById( "new-quote" )
 const favoriteButton = document.getElementById( "favorite-button" ) 
 const currentQuote   = document.getElementById( "current-quote-content" )
 const favoriteList   = document.getElementById( "favorite-list")
+const logoDisplay    = document.getElementById("logo")
+logoDisplay.src = 'assets/kanye__1_.png'
+favoriteButton.style.display = "none"
+
+
+logoDisplay.addEventListener("click", () => {
+    window.location.reload()
+})
+
 
 
 
@@ -20,6 +30,7 @@ function makeNewQuote()
         .then( quoteData => 
     {
         displayQuote( quoteData )
+        favoriteButton.style.display = 'block' // reveals like button when new quote button is clicked
         isFavorited = false      // sets the isFavorited variable to false everytime a new quote is shown
         favoriteButton.style.backgroundColor = 'white'  // sets the background color of the favorite button to white
     })
@@ -65,25 +76,38 @@ function favClick()
 // checks if isFavorited is false
                 if ( !isFavorited )              
             {
-                removeLastFavorite()
+                
+                removeLastFavorite();
                 console.log( "remove" )
                 
             }
 
-
+            
 
 }    
 
 function addNewFavorite() 
 {
-            const newFavorite  = document.createElement("li")                   // function that appends new favorites to a list 
+
+            const newFavorite  = document.createElement("li")
+            const deleteEmoji = document.createElement('span')          
+            deleteEmoji.textContent =     '❌'                           // function that appends new favorites to a list 
             newFavorite.textContent = currentQuote.textContent
+            newFavorite.appendChild(deleteEmoji)
             favoriteList.appendChild(newFavorite)
+        
+            deleteEmoji.addEventListener('click', () => {
+                    newFavorite.remove()
+            })
+            
 }
 
 
-function removeLastFavorite() {
-    const favoriteListDelete = favoriteList.getElementsByTagName("li")
-    const lastItem = favoriteListDelete[favoriteListDelete.length - 1]          // function that removes the last favorite if heart is clicked again
-    lastItem.parentNode.removeChild(lastItem)
+function removeLastFavorite() 
+{
+     
+
+            const favoriteListDelete = favoriteList.getElementsByTagName("li")
+            const lastItem = favoriteListDelete[favoriteListDelete.length - 1]   // function that removes the last favorite if heart is clicked again
+            lastItem.parentNode.removeChild(lastItem)
 }                                                                                   
