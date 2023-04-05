@@ -105,7 +105,9 @@ function addNewFavorite()
                 {
                    newFavorite.style.color = ""
                 })
-            
+        
+                
+
 
             newFavorite.textContent = currentQuote.textContent
             newFavorite.appendChild(deleteEmoji)
@@ -114,6 +116,9 @@ function addNewFavorite()
             deleteEmoji.addEventListener('click', () => 
             {
                     newFavorite.remove()
+                    if (Math.random() > 0.5) {
+                    window.alert("Don't you love all of kanye's sayings ;(")}
+
             })
             
 }
@@ -127,3 +132,33 @@ function removeLastFavorite()
             const lastItem = favoriteListDelete[favoriteListDelete.length - 1]   // function that removes the last favorite if heart is clicked again
             lastItem.parentNode.removeChild(lastItem)
 }                                                                                   
+
+
+
+
+
+// function kanyeForPresident () {
+// let enterEventCount = 0;
+// let leaveEventCount = 0;
+// const mouseTarget = document.getElementById("mouseTarget");
+// const unorderedList = document.getElementById("unorderedList");
+
+// mouseTarget.addEventListener("mouseenter", (e) => {
+//   mouseTarget.style.border = "5px dotted orange";
+//   enterEventCount++;
+//   addListItem("Kanye for president!");
+// });
+
+// mouseTarget.addEventListener("mouseleave", (e) => {
+//   mouseTarget.style.border = "1px solid #333";
+//   leaveEventCount++;
+//   addListItem("Kanye for president!");
+// });
+// function addListItem(text) {
+//   const newTextNode = document.createTextNode(text);
+//   const newListItem = document.createElement("li");
+//   newListItem.appendChild(newTextNode);
+//   unorderedList.appendChild(newListItem);
+// }}
+
+// kanyeForPresident()
