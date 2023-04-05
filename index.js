@@ -106,7 +106,7 @@ function addNewFavorite()
                    newFavorite.style.color = ""
                 })
             
-
+//comment comment comment
             newFavorite.textContent = currentQuote.textContent
             newFavorite.appendChild(deleteEmoji)
             favoriteList.appendChild(newFavorite)
