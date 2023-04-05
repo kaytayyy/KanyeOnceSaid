@@ -1,0 +1,60 @@
+body {
+    background-color: gray;
+}
+
+#container {
+    text-align: center;
+}
+
+#new-quote {
+    padding: 14px 20px 14px 20px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-family: monospace;
+    font-weight: bolder;
+}
+#favorite-button {
+    padding: 5px 5px 5px 5px;
+    background: white;
+    border-radius: 3px;
+    border: none;
+    font-size: medium;
+}
+
+#current-quote {
+    text-align: center;
+    font-family: monospace;
+}
+
+#logo {
+    position: absolute;
+    top: 12pt;
+    left: 24pt;
+}
+
+#box-model {
+    width: 300px;
+    border: 15px whitesmoke;
+    padding: 50px;
+    margin: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    text-decoration: none;
+}
+
+li{
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: x-large;
+    font-family: monospace;
+}

@@ -8,7 +8,7 @@ const favoriteButton = document.getElementById( "favorite-button" )
 const currentQuote   = document.getElementById( "current-quote-content" )
 const favoriteList   = document.getElementById( "favorite-list")
 const logoDisplay    = document.getElementById( "logo")
-logoDisplay.src = 'assets/kanye__1_.png'
+logoDisplay.src = 'assets/Kanye_logo.png'
 favoriteButton.style.display = "none"
 
 // page refresh 
