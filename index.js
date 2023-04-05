@@ -17,23 +17,6 @@ logoDisplay.addEventListener("click", () =>
     window.location.reload()
 })
 
-// mouseover effects for the list 
-favoriteList.addEventListener(
-    "mouseover",
-    (e) => 
-    {
-      e.target.style.color = "purple"; 
-    })
-
-    favoriteList.addEventListener(
-    "mouseout",
-    (e) => 
-    {
-       e.target.style.color = ""
-    })
-
-
-
 
 // button that starts the fetch request
 newQuoteButton.addEventListener( "click", makeNewQuote ) 
@@ -88,7 +71,7 @@ function favClick()
 
             }      
 
-                                                // these are the functions where we will build what we want to do when the favorite button is clicked  
+                                                  
 // checks if isFavorited is false
                 if ( !isFavorited )              
             {
@@ -108,6 +91,22 @@ function addNewFavorite()
             const newFavorite  = document.createElement("li")
             const deleteEmoji = document.createElement('span')          
             deleteEmoji.textContent =     '❌'                           // function that appends new favorites to a list 
+
+            deleteEmoji.addEventListener(
+                "mouseover",
+                (e) => 
+                {
+                  newFavorite.style.color = "purple"; 
+                })
+            
+                deleteEmoji.addEventListener(
+                "mouseout",
+                (e) => 
+                {
+                   newFavorite.style.color = ""
+                })
+            
+
             newFavorite.textContent = currentQuote.textContent
             newFavorite.appendChild(deleteEmoji)
             favoriteList.appendChild(newFavorite)
