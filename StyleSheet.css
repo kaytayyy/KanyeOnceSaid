@@ -15,6 +15,7 @@ body {
     font-size: 14px;
     font-family: monospace;
     font-weight: bolder;
+    transform: translate(600%, 0%);
 }
 #favorite-button {
     padding: 5px 5px 5px 5px;
@@ -22,11 +23,18 @@ body {
     border-radius: 3px;
     border: none;
     font-size: medium;
+    display: grid;
+    place-items: center;
+    transform: translate(2425%, -125%);
 }
 
 #current-quote {
     text-align: center;
     font-family: monospace;
+    margin-top: 0px;
+    margin-left: 90px;
+    font-size: large;
+    line-break: auto;
 }
 
 #logo {
@@ -35,26 +43,29 @@ body {
     left: 24pt;
 }
 
-#box-model {
-    width: 300px;
-    border: 15px whitesmoke;
-    padding: 50px;
-    margin: 20px;
-}
 
-ul {
+#nav-bar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 100px;
     text-decoration: none;
+    margin-top: 150px;
 }
 
-li{
+li {
     display: block;
     color: white;
     padding: 8px 16px;
     text-decoration: none;
     font-size: x-large;
     font-family: monospace;
+}
+
+#favorite-list {
+    margin-left: 100px;
+    margin-top: 50px;
+    line-break: auto;
+    font-size: smaller;
+    text-align: center;
 }
