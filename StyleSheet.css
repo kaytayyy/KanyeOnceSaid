@@ -15,7 +15,7 @@ body {
     font-size: 14px;
     font-family: monospace;
     font-weight: bolder;
-    transform: translate(600%, 0%);
+    transform: translate(640%, 0%);
 }
 #favorite-button {
     padding: 5px 5px 5px 5px;
@@ -25,7 +25,7 @@ body {
     font-size: medium;
     display: grid;
     place-items: center;
-    transform: translate(2425%, -125%);
+    transform: translate(2550%, -125%);
 }
 
 #current-quote {
@@ -36,6 +36,7 @@ body {
     font-size: x-large;
     line-break: auto;
     font-weight: bold;
+    transform: translate(0%, 0%);
 }
 
 #logo {
